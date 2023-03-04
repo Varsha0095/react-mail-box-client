@@ -1,0 +1,41 @@
+.main {
+    margin: 0 30px;
+    width: 80%;
+}
+
+.add_section {
+    padding-bottom: 15px;
+    border-bottom: 2px solid yellowgreen;
+}
+
+.add_section input {
+    border-color: transparent;
+}
+
+.add_section input:focus{
+    outline: none;
+}
+
+.compose_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.compose_section input{
+    border-color: transparent;
+    margin: 14px 0;
+    border-bottom-color: yellowgreen;
+    padding-bottom: 8px;
+}
+
+.compose_section input:focus {
+    outline: none;
+}
+
+.send_button{
+    margin-top: 20px;
+    padding: 5px 12px;
+    background: pink;
+    border: 1px solid peru;
+    border-radius: 10px;
+}
