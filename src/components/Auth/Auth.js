@@ -1,9 +1,12 @@
 import { useRef, useState } from "react"
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Form } from "react-router-dom";
 import { authAction } from "../../store/AuthReducer";
+import { Card } from "react-bootstrap";
+import useHttp from "../Hook/useHttp";
 
 const Auth = () => {
     const[isLogin, setLogin] = useState(true);
@@ -14,7 +17,8 @@ const Auth = () => {
     const enteredPasswordRef = useRef();
     const enteredConfirmPasswordRef = useRef();
 
-    const history = useHistory();
+    // const history = useHistory();
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -40,7 +44,8 @@ const Auth = () => {
                     let mail1 = enteredMail.replace('@','').replace('.','');
                     dispatch(authAction.setEmailId(mail1));
 
-                    history.replace("/mailbox/compose");
+                    // history.replace("/mailbox/compose");
+                    navigate.replace("/mailbox/compose");
                     window.location.reload();
                 };
 

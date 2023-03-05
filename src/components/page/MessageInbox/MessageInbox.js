@@ -1,7 +1,7 @@
-import { Card, Container } from "react-bootstrap";
+import { Card, Container, Button } from "react-bootstrap";
 import { Fragment } from "react-bootstrap/dist/react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { manageEmailActions } from "../../../store/ManageEmailReducer";
 import useHttp from "../../Hook/useHttp";
 
@@ -13,7 +13,8 @@ const MessageInbox = (props) => {
 
   const [error, sendRequest] = useHttp();
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
+//   const history = useHistory();
 
   let arr = mails.find((index) => index.id === id);
 
@@ -23,7 +24,8 @@ const MessageInbox = (props) => {
     const responseHandler = () => {
       dispatch(manageEmailActions.deleteMail(arr.id));
       alert("Message deleted successfully");
-      history.replace("/mailbox/receiveinbox");
+    //   history.replace("/mailbox/receiveinbox");
+    navigate.replace("/mailbox/receiveinbox")
     };
 
     sendRequest(

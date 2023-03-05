@@ -1,14 +1,15 @@
 import { Badge, Button } from "react-bootstrap";
 import { Fragment } from "react-bootstrap/dist/react-bootstrap";
 import { useSelector } from "react-redux";
-import { Route, useHistory, useParams } from "react-router-dom";
+import { Route, useNavigate, useParams } from "react-router-dom";
 import Inbox from "../Inbox/Inbox";
 import Welcome from "../Welcome";
 import classes from "./Mailbox.module.css";
 import ComposeMail from "../ComposeMail/ComposeMail";
 
 const Mailbox = () => {
-  const history = useHistory();
+//   const history = useHistory();
+    const navigate = useNavigate();
 
   const receiveMail = useSelector((state) => state.mailmanager.receive);
   const sentMail = useSelector((state) => state.mailmanager.sent);
@@ -25,7 +26,8 @@ const Mailbox = () => {
             variant="danger"
             style={{ marginBottom: "30px" }}
             onClick={() => {
-              history.push("/mailbox/compose");
+            //   history.push("/mailbox/compose");
+            navigate("/mailbox/compose");
             }}
           >
             Compose
@@ -34,7 +36,8 @@ const Mailbox = () => {
             variant="danger"
             style={{ marginBottom: "30px" }}
             onClick={() => {
-              history.push("/mailbox/receiveinbox");
+            //   history.push("/mailbox/receiveinbox");
+            navigate("/mailbox/receiveinbox");
             }}
           >
             Inbox{" "}
@@ -46,7 +49,8 @@ const Mailbox = () => {
             variant="danger"
             style={{ marginBottom: "30px" }}
             onClick={() => {
-              history.push("/mailbox/inbox");
+            //   history.push("/mailbox/inbox");
+            navigate("/mailbox/inbox");
             }}
           >
             Sent
